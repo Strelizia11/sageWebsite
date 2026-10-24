@@ -1,0 +1,23 @@
+begin;
+insert into media_assets(id,path,name,mime,size,state) values('30000000-0000-0000-0000-000000000001','test.pdf','Test PDF','application/pdf',50,'ready');
+insert into posts(id,title,slug,status) values('40000000-0000-0000-0000-000000000001','Media owner','media-owner','draft');
+insert into post_attachments(parent_id,asset_id) values('40000000-0000-0000-0000-000000000001','30000000-0000-0000-0000-000000000001');
+insert into storage.objects(bucket_id,name) values('sage-media','test.pdf');
+set local role anon;
+do $$begin if (select count(*) from media_assets)<>0 or (select count(*) from storage.objects)<>0 then raise exception 'Draft attachment exposed';end if;end$$;
+reset role;
+update posts set status='published';
+set local role anon;
+do $$begin if (select count(*) from media_assets)<>1 or (select count(*) from storage.objects)<>0 then raise exception 'Published attachment inaccessible';end if;end$$;
+reset role;
+update posts set status='archived';
+set local role anon;
+do $$begin if (select count(*) from media_assets)<>1 then raise exception 'Archived attachment inaccessible';end if;end$$;
+reset role;
+update posts set status='draft';
+set local role anon;
+do $$begin if (select count(*) from media_assets)<>0 then raise exception 'Withdrawn attachment exposed';end if;end$$;
+reset role;
+do $$begin begin delete from media_assets;raise exception 'Attached file deleted';exception when foreign_key_violation then null;end;end$$;
+rollback;
+
