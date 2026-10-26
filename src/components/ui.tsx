@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, FileText, CalendarDays } from "lucide-react";
+import { ArrowUpRight, ArrowRight, CalendarDays, FileText } from "lucide-react";
 import { formatManilaDate, type Row } from "@/lib/domain";
 import ReactMarkdown from "react-markdown";
 export function Heading({
-  eyebrow,
   title,
   description,
 }: {
@@ -14,7 +13,6 @@ export function Heading({
   return (
     <section className="page-heading">
       <div className="wrap">
-        <p className="eyebrow">{eyebrow}</p>
         <h1>
           {title}
           <span className="gold">.</span>
@@ -34,7 +32,7 @@ export function Empty({
   return (
     <div className="empty">
       <span className="empty-icon">
-        <FileText size={25} />
+        <FileText size={25} strokeWidth={1.5} aria-hidden="true" />
       </span>
       <h3>{title}</h3>
       <p>{text}</p>
@@ -83,7 +81,6 @@ export function Card({ item, section }: { item: Row; section: string }) {
   );
 }
 export function SectionTitle({
-  label,
   title,
   href,
 }: {
@@ -94,7 +91,6 @@ export function SectionTitle({
   return (
     <div className="section-title">
       <div>
-        <p className="eyebrow">{label}</p>
         <h2>{title}</h2>
       </div>
       {href && (

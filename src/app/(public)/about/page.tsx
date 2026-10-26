@@ -17,7 +17,6 @@ export default async function About() {
           alt="UDD-SAGE official seal"
         />
         <div>
-          <p className="eyebrow">OUR ORGANIZATION</p>
           <h2>
             Excellence begins
             <br />
@@ -36,9 +35,8 @@ export default async function About() {
         </div>
       </section>
       <section className="wrap section values-grid">
-        {["mission", "vision", "objectives"].map((key, i) => (
+        {["mission", "vision", "objectives"].map((key) => (
           <div className="value-card" key={key}>
-            <span className="value-number">0{i + 1}</span>
             <h2>Our {key}</h2>
             {s[key] ? (
               <Markdown text={s[key]} />

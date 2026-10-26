@@ -10,6 +10,7 @@ import {
 import { settings, list, homepage } from "@/lib/data";
 import { Card, Empty, SectionTitle } from "@/components/ui";
 import { FULL_NAME, formatManilaDate } from "@/lib/domain";
+import { SealOrbit } from "@/components/seal-orbit";
 export default async function Home() {
   const [s, news, nextExams, results, events, featured, announcements] =
     await Promise.all([
@@ -24,20 +25,13 @@ export default async function Home() {
   const exams = { items: nextExams };
   return (
     <>
-      <section className="hero">
+      <section className="hero academic-hero">
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow light">
-              <span className="gold-line" /> THE OFFICIAL HOME OF UDD-SAGE
-            </p>
             <h1>
               Scholars today.
               <br />
-              Leaders{" "}
-              <em>
-                for
-                <br className="desktop-br" /> tomorrow.
-              </em>
+              <span>Leaders for tomorrow.</span>
             </h1>
             <p className="hero-name">{FULL_NAME}</p>
             <p className="hero-description">
@@ -50,23 +44,25 @@ export default async function Home() {
               <Link className="button gold-button" href="/about">
                 Discover SAGE <ArrowUpRight size={18} />
               </Link>
-              <Link className="hero-secondary" href="/activities">
-                Explore activities <ArrowRight size={17} />
+              <Link className="hero-secondary" href="/examinations">
+                View examinations <ArrowRight size={17} />
               </Link>
             </div>
           </div>
-          <div className="hero-emblem">
-            <div className="orbit orbit-one" />
-            <div className="orbit orbit-two" />
-            <span className="star star-one">✦</span>
-            <span className="star star-two">✦</span>
-            <img
-              src={s.logo_id ? `/api/media/${s.logo_id}` : "/udd-sage-logo.png"}
-              alt="Universidad de Dagupan Scholars’ Association for Greater Excellence official seal"
-            />
+          <div className="hero-emblem academic-seal">
+            <SealOrbit>
+              <img
+                src={
+                  s.logo_id ? `/api/media/${s.logo_id}` : "/udd-sage-logo.png"
+                }
+                alt="Universidad de Dagupan Scholars’ Association for Greater Excellence official seal"
+                width={280}
+                height={280}
+              />
+            </SealOrbit>
             <div className="emblem-caption">
-              <span>ONE COMMUNITY</span>
-              <span>GREATER POSSIBILITIES</span>
+              <strong>UDD-SAGE</strong>
+              <span>Scholarship. Leadership. Service.</span>
             </div>
           </div>
         </div>
@@ -140,7 +136,6 @@ export default async function Home() {
       <section className="academic-band">
         <div className="wrap academic-grid">
           <div>
-            <p className="eyebrow">YOUR ACADEMIC JOURNEY</p>
             <h2>
               A little preparation.
               <br />
@@ -208,7 +203,6 @@ export default async function Home() {
       </section>
       <section className="community-banner wrap">
         <div>
-          <p className="eyebrow light">THE PEOPLE BEHIND THE PURPOSE</p>
           <h2>
             Different strengths.
             <br />

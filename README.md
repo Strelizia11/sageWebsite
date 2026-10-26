@@ -40,6 +40,8 @@ Database tests run the real migration and role policies in embedded PostgreSQL (
 
 ## Documentation
 
+- [Current visual design system](DESIGN.md)
+- [Professional academic interface direction](docs/superpowers/specs/2026-10-26-academic-ui-design.md)
 - [Deployment and admin bootstrap](docs/deployment.md)
 - [Editor guide](docs/editor-guide.md)
 - [Vibe-coding workflow](docs/vibe-coding.md)

@@ -10,13 +10,22 @@ export default async function PublicLayout({
 }) {
   const s = await settings();
   return (
-    <>
+    <div className="public-site">
       <Header logo={s.logo_id ? `/api/media/${s.logo_id}` : undefined} />
       <main id="main">{children}</main>
       <footer>
         <div className="wrap footer-grid">
           <div>
             <div className="footer-brand">
+              <img
+                src={
+                  s.logo_id ? `/api/media/${s.logo_id}` : "/udd-sage-logo.png"
+                }
+                alt=""
+                width={52}
+                height={52}
+                loading="lazy"
+              />
               UDD <span>/</span> SAGE
             </div>
             <p>{FULL_NAME}</p>
@@ -39,6 +48,6 @@ export default async function PublicLayout({
           <span>United in purpose. Growing in excellence.</span>
         </div>
       </footer>
-    </>
+    </div>
   );
 }

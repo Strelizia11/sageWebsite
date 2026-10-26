@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-26T00:00:00+08:00",
+  "title": "Design System: UDD-SAGE",
+  "extensions": {
+    "typographyMeta": {
+      "display": { "displayName": "Academic introduction", "purpose": "Bold Manrope heading in the navy introduction; responsive overrides are documented in DESIGN.md." },
+      "headline": { "displayName": "Public section heading", "purpose": "Manrope section headings, with upright inherited emphasis." },
+      "body": { "displayName": "Reading and controls", "purpose": "Locally bundled DM Sans; article prose increases leading." }
+    },
+    "shadows": [
+      { "name": "content-card-hover", "value": "0 12px 25px #1c24300f", "purpose": "Subtle hover feedback on publication cards." },
+      { "name": "mobile-navigation", "value": "0 10px 20px #10184412", "purpose": "Separate the expanded navigation from page content." },
+      { "name": "schedule-dialog", "value": "0 24px 80px #10183c26", "purpose": "Lift the schedule notice above its backdrop." }
+    ],
+    "motion": [
+      { "name": "seal-orbit", "value": "seal-ripple-out 14s linear infinite", "purpose": "Three staggered gold rings expand and fade around the stationary seal, without controls; reduced motion shows one static ring." },
+      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Established transform easing in academic.css." },
+      { "name": "control-colors", "value": "0.2s", "purpose": "Background, color, border and shadow transitions on shared controls." },
+      { "name": "control-transform", "value": "0.3s", "purpose": "Shared control transforms; buttons remain stationary and inline arrows can move 3px." },
+      { "name": "card-transform", "value": "transform 0.2s, box-shadow 0.2s", "purpose": "Publication cards move upward 2px on hover." },
+      { "name": "reduced-motion", "value": "@media (prefers-reduced-motion: reduce)", "purpose": "Disable animations and transitions, restore automatic scrolling, and suppress hover translation." }
+    ],
+    "breakpoints": [
+      { "name": "wide-header", "value": "1500px", "purpose": "Minimum width for centered wide-screen header padding." },
+      { "name": "compact-desktop", "value": "1150px", "purpose": "Maximum width for narrower gutters and tighter introduction geometry." },
+      { "name": "mobile-navigation", "value": "950px", "purpose": "Maximum width for collapsed navigation and intermediate grids." },
+      { "name": "mobile", "value": "650px", "purpose": "Maximum width for stacked introduction, centered 230px seal orbit and mobile section rhythm." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Standard navy action with stationary color feedback.",
+      "html": "<button class=\"ds-primary\">View examinations</button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:13px 22px;border:1px solid transparent;border-radius:5px;background:var(--navy,#101a48);color:white;font:700 13px/1.5 var(--font-body,Arial,sans-serif);cursor:pointer;transition:background-color .2s,color .2s,border-color .2s,box-shadow .2s}.ds-primary:hover{background:#263466}.ds-primary:focus-visible{outline:3px solid #846515;outline-offset:4px}.ds-primary:disabled{opacity:.55;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "Introduction Gold Button",
+      "kind": "button",
+      "refersTo": "button-hero",
+      "description": "The principal action in the dark academic introduction.",
+      "html": "<button class=\"ds-hero-action\">Examination information</button>",
+      "css": ".ds-hero-action{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:13px 22px;border:1px solid transparent;border-radius:5px;background:#e4c36f;color:var(--navy,#101a48);font:700 13px/1.5 var(--font-body,Arial,sans-serif);cursor:pointer;transition:background-color .2s}.ds-hero-action:hover{background:#f0d28a}.ds-hero-action:focus-visible{outline:3px solid #846515;outline-offset:4px}.ds-hero-action:disabled{opacity:.55;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-hero-action{transition:none}}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Bordered white action for secondary choices and editors.",
+      "html": "<button class=\"ds-secondary\">Cancel</button>",
+      "css": ".ds-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:13px 22px;border:1px solid var(--line,#dfe4ed);border-radius:5px;background:white;color:var(--ink,#202b45);font:700 13px/1.5 var(--font-body,Arial,sans-serif);cursor:pointer;transition:background-color .2s}.ds-secondary:hover{background:#edf0f6}.ds-secondary:focus-visible{outline:3px solid #846515;outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Readable public and editor field with navy focus border.",
+      "html": "<label class=\"ds-field-label\">Search<input class=\"ds-field\" type=\"search\" placeholder=\"Search publications\"></label>",
+      "css": ".ds-field-label{display:block;color:var(--ink,#202b45);font:400 13px/1.7 var(--font-body,Arial,sans-serif)}.ds-field{display:block;box-sizing:border-box;width:100%;margin-top:6px;min-height:46px;padding:11px 12px;border:1px solid #bcbebd;border-radius:8px;background:white;color:var(--ink,#202b45);font:400 16px/1.7 var(--font-body,Arial,sans-serif);caret-color:var(--navy,#101a48);transition:border-color .2s}.ds-field::placeholder{color:#6d6e78;opacity:1}.ds-field:hover{border-color:#7a8193}.ds-field:focus{border-color:var(--navy,#101a48)}.ds-field:focus-visible{outline:3px solid #846515;outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-field{transition:none}}"
+    },
+    {
+      "name": "Public Navigation",
+      "kind": "nav",
+      "description": "Compact desktop labels with an active gold bottom rule.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Preview navigation\"><a href=\"#home\" aria-current=\"page\">Home</a><a href=\"#about\">About</a><a href=\"#examinations\">Examinations</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:22px;font:600 12px/1.7 var(--font-body,Arial,sans-serif);color:var(--ink,#202b45)}.ds-nav a{display:inline-flex;align-items:center;min-height:44px;padding:9px 0;border-bottom:2px solid transparent;text-decoration:none;color:inherit;transition:color .2s}.ds-nav a[aria-current]{color:var(--navy,#101a48);border-bottom-color:#b58b24}.ds-nav a:hover{color:#725615}.ds-nav a:focus-visible{outline:3px solid #846515;outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none}}"
+    },
+    {
+      "name": "Publication Card",
+      "kind": "card",
+      "refersTo": "content-card",
+      "description": "White publication surface with quiet border and modest hover lift; preview uses generic content labels.",
+      "html": "<a class=\"ds-card\" href=\"#publication\"><div class=\"ds-card-body\"><h3>Publication title</h3><p>Published content appears here.</p></div></a>",
+      "css": ".ds-card{display:block;overflow:hidden;border:1px solid var(--line,#dfe4ed);border-radius:8px;background:white;color:var(--ink,#202b45);text-decoration:none;transition:transform .2s,box-shadow .2s}.ds-card-body{padding:28px}.ds-card h3{margin:15px 0;font:700 21px/1.4 var(--font-heading,Arial,sans-serif);letter-spacing:-.03em}.ds-card p{margin:0 0 14px;color:var(--muted,#5f697c);font:400 14px/1.7 var(--font-body,Arial,sans-serif)}.ds-card:hover{transform:translateY(-2px);box-shadow:0 12px 25px #1c24300f}.ds-card:focus-visible{outline:3px solid #846515;outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-card{transition:none}.ds-card:hover{transform:none}}"
+    },
+    {
+      "name": "Member Pill",
+      "kind": "chip",
+      "description": "Existing passive member metadata; no interactive selected state.",
+      "html": "<span class=\"ds-pill\">Member</span>",
+      "css": ".ds-pill{display:inline-block;padding:6px 13px;border-radius:30px;background:#eeedf4;color:var(--ink,#202b45);font:400 11px/1.7 var(--font-body,Arial,sans-serif)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Professional Academic Identity",
+    "overview": "The unchanged organization seal anchors a confident, orderly academic identity. Navy establishes institutional presence; white and pale surfaces keep published information readable; restrained gold marks emphasis and important actions. Bold sans-serif headings give the system a clear hierarchy without theatrical decoration.\n\nThe implementation replaces the illustrated landscape with straightforward organization content and structured navigation. This document records the implemented cascade, rather than inactive artwork or earlier styles.",
+    "keyCharacteristics": [
+      "Seal-led identity and restrained gold emphasis.",
+      "Bold Manrope headings with readable DM Sans body text.",
+      "Structured grids, quiet borders and compact corner radii.",
+      "Brief interaction feedback with reduced-motion support."
+    ],
+    "rules": [
+      { "name": "The Seal Authority Rule", "body": "Keep the supplied seal unchanged; use its navy, white and gold context to establish identity without adding scene illustration.", "section": "colors" }
+    ],
+    "dos": [
+      "Do keep the supplied seal unchanged and clearly legible.",
+      "Do use bold Manrope for primary public headings and DM Sans for reading and controls.",
+      "Do use the final academic stylesheet cascade when extending an existing component.",
+      "Do preserve visible keyboard focus, mobile behavior and reduced-motion support.",
+      "Do use published content and actual organization data."
+    ],
+    "donts": [
+      "Don't restore the illustrated landscape or atmospheric motion as the visual identity.",
+      "Don't invent people, achievements, results, dates, statistics or campus photography.",
+      "Don't enlarge all corners or add floating shadows to every panel.",
+      "Don't introduce a replacement logo, decorative display font or unrelated accent palette."
+    ]
+  }
+}
+
